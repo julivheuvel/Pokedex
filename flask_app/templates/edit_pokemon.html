@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Edit Recipe</title>
+</head>
+<body>
+
+    {% with messages = get_flashed_messages() %}     
+         {% if messages %}                           
+            {% for message in messages %}            
+                <li class="text-danger">{{message}}</li>        
+             {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+    <div class="container">
+        <div class="d-flex justify-content-between align-middle">
+            <div>
+                <h1>Edit Pokemon</h1>
+            </div>
+            <div class="d-flex">
+                <a href="/dashboard" class="btn btn-link float-end mt-3">Dashboard</a>
+                <a href="/logout" class="btn btn-link float-end mt-3">Logout</a>
+            </div>
+        </div>
+
+
+
+        <form action="/update_pokemon/{{pokemon.id}}" method="POST">
+            <input type="hidden" value="{{ pokemon.posted_by.id }}" name="trainer_id">
+            <div class="mb-3">
+                <label class="form-label">Name:</label>
+                <input name="name" type="text" class="form-control" value="{{pokemon.name}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Pokedex Number:</label>
+                <textarea name="number" class="form-control">{{pokemon.number}}</textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Type:</label>
+                <textarea name="type" class="form-control">{{pokemon.type}}</textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description:</label>
+                <textarea name="description" class="form-control">{{pokemon.description}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+
+
+
+
+
+
+
+    </div>
+    
+</body>
+</html>

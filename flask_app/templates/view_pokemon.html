@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>View Pokemon</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="d-flex justify-content-between align-middle">
+            <div>
+                <h1>Add New Pokemon</h1>
+            </div>
+            <div class="d-flex">
+                <a href="/dashboard" class="btn btn-link float-end mt-3">Dashboard</a>
+                <a href="/logout" class="btn btn-link float-end mt-3">Logout</a>
+            </div>
+        </div>
+
+
+        <h1>{{ pokemon.name }}</h1>
+        <div class="container d-flex">
+
+            <div class="col">
+                <div>Name:</div>
+                <div>Pokedex Number:</div>
+                <div>Type:</div>
+                <div>Description:</div>
+            </div>
+
+            <div class="col">
+                <div>{{ pokemon.name }}</div>
+                <div>{{ pokemon.number }}</div>
+                <div>{{ pokemon.type }}</div>
+                <div>{{ pokemon.description }}</div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+</body>
+</html>

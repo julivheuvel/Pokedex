@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    
+    <div class="container">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h1>Welcome {{ trainer.first_name }}!</h1>
+                </div>
+                <div class="d-flex align-middle">
+                    <a href="/pokemon/new" class="btn btn-link float-end mt-3">Create</a>
+                    <a href="/logout" class="btn btn-link float-end mt-3">Logout</a>
+                </div>
+            </div>
+
+
+
+
+            <h3>Here are the Pokemon!</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Pokedex Number</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    {% for pokemon in pokemons %}
+                    <tr>
+                        <th scope="row">{{pokemon.name}}</th>
+                        <th scope="row">{{pokemon.number}}</th>
+                        <th scope="row">{{pokemon.type}}</th>
+                        <th scope="row">{{pokemon.description}}</th>
+                        <td>
+                            <a href="/pokemon/{{pokemon.id}}" class="btn btn-link">View Pokemon</a>
+
+                            {% if trainer.id == pokemon.trainer_id %}
+                            <a href="/pokemon/edit/{{pokemon.id}}" class="btn btn-link">Edit</a>
+                            {% endif %}
+
+                            <a href="/pokemon/delete/{{pokemon.id}}" class="btn btn-link">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+    </div>
+</body>
+</html>
